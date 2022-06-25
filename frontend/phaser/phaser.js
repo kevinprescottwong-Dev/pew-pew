@@ -1,7 +1,5 @@
+import Loading from "./scenes/loading.js";
 const p = document.getElementById("phaser");
-
-console.log("window", { w: window.innerWidth, h: window.innerHeight });
-console.log("phaser container", { w: p.offsetWidth, h: p.offsetHeight });
 
 var config = {
   type: Phaser.AUTO,
@@ -14,10 +12,13 @@ var config = {
       gravity: { y: 200 },
     },
   },
-  scene: {
-    preload: preload,
-    create: create,
-  },
+  scene: [
+    Loading,
+    {
+      preload: preload,
+      create: create,
+    },
+  ],
 };
 
 var game = new Phaser.Game(config);
@@ -67,8 +68,6 @@ function create() {
     "Create Game!",
     {
       fill: "#0f0",
-      boundsAlignH: "center",
-      boundsAlignV: "middle",
     }
   );
 
