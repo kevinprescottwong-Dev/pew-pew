@@ -1,4 +1,5 @@
 import Loading from "./scenes/loading.js";
+import MainMenu from './scenes/mainMenu.js';
 const p = document.getElementById("phaser");
 
 var config = {
@@ -14,6 +15,7 @@ var config = {
   },
   scene: [
     Loading,
+    MainMenu,
     {
       preload: preload,
       create: create,

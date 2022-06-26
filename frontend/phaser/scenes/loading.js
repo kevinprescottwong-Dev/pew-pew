@@ -7,6 +7,7 @@ export default class Loading extends Phaser.Scene {
     const socket = io("http://localhost:3000", { withCredentials: false });
     const handlePlayerConnected = (id) => {
       this.add.text(100, 100, `Player ID: ${id}`, { fill: "#0f0" });
+      this.scene.start("mainMenu")
     };
     socket.on("playerConnected", (e) => {
       console.log({ e });
@@ -14,7 +15,7 @@ export default class Loading extends Phaser.Scene {
     });
   }
 
-  preload() {}
+  preload() { }
   create() {
     const screenCenterX =
       this.cameras.main.worldView.x + this.cameras.main.width / 2;
